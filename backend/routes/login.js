@@ -73,7 +73,7 @@ router.post("/", async (req, res) => {
     userData.save();
 
     res.cookie("QUIZBASH", cookie);
-    return res.status(200).send({ success: true, token: AccToken })
+    return res.status(200).send({ success: true, token: accToken })
 });
 
 module.exports = router;
