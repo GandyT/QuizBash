@@ -33,8 +33,6 @@ router.get("/", async (req, res) => {
     if (!identifierExists) return res.redirect(`${process.env.DOMAIN}/verify/fail`);
 
     var dataTable = await Unverified.findOne({ identifier: identifier });
-    var email = dataTable.Email;
-    var password = dataTable.Password;
     var userID = Random.randomUUID();
     var userExists = await User.exists({ id: userID });
     while (userExists) {
@@ -44,8 +42,8 @@ router.get("/", async (req, res) => {
 
     const newUser = new User({
         _id: Mongoose.Types.ObjectId(),
-        email: email,
-        password: password,
+        email: dataTable.email,
+        password: dataTable.password,
         dob: dataTable.dob,
         username: dataTable.username,
         id: userID,
