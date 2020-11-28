@@ -52,6 +52,7 @@ router.get("/", async (req, res) => {
         firstName: dataTable.firstName,
         lastName: dataTable.lastName,
         avatarURL: "",
+        quizzes: [],
         auth: {
             token: "",
             expires: "",

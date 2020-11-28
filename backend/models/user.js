@@ -10,6 +10,7 @@ const user = Mongoose.Schema({
     firstName: String,
     lastName: String,
     avatarURL: String,
+    quizzes: [String], // Store Quiz Id's here for lookup in quiz database.
     auth: {
         token: String,
         cookie: String
