@@ -28,6 +28,8 @@
   outline: none;
   border: 1px solid black;
   width: 90%;
+  color: black;
+  font-size: 16px;
 }
 .loginBtn {
   margin-top: 50px;
@@ -49,4 +51,8 @@
   color: #bbbbbb;
   transition: 0.6s all ease;
   background-color: rgb(79, 176, 214);
+}
+
+.loginError {
+  margin-top: 5%;
 }
