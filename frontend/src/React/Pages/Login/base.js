@@ -49,8 +49,8 @@ export default class Login extends React.Component {
                 {this.redirect()}
                 <div className="loginBox" >
                     <div className="inputLogin">
-                        <input id="email" type="text" value={this.state.email} />
-                        <input id="password" type="text" value={this.state.password} />
+                        <input id="email" type="text" onChange={this.handleChange} value={this.state.email} />
+                        <input id="password" type="text" onChange={this.handleChange} value={this.state.password} />
                     </div>
                     <div className="loginBottom">
                         <div className="loginError">{this.renderError()}</div>
