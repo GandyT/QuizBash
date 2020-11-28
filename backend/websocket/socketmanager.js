@@ -103,5 +103,10 @@ module.exports = {
         } else {
             games[gameId].round++;
         }
+    },
+    purge: function () {
+        for (let [key, value] of Object.entries(games)) {
+            games[key].players = value.players.filter(p => p.socket.readyState == p.socket.OPEN);
+        }
     }
 }
