@@ -22,6 +22,12 @@ app.use(Express.static(Path.join(__dirname, '../Frontend/build')));
 /* ROUTES */
 app.use("/api/signup", require("./routes/signup.js"));
 app.use("/api/verify", require("./routes/verify.js"));
+app.use("/api/login", require("./routes/login.js"));
+app.use("/api/createquiz", require("./routes/createquiz.js"));
+app.use("/api/savequiz", require("./routes/savequiz.js"));
+app.use("/api/getquiz", require("./routes/getquiz.js"));
+app.use("/api/getuser", require("./routes/getuser.js"));
+
 
 /* CATCH-ALL FRONTEND */
 app.get('/*', (req, res) => {

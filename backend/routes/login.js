@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
     if (userData.password != password) return res.send({ success: false, error: "Invalid password" });
 
     var accToken = Random.randomUUID();
-    var authTokenExists = await User.findOne({})
+    var authTokenExists = await User.find({})
         .populate({
             path: "auth",
             match: { token: accToken },
@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
         })
     while (authTokenExists) {
         accToken = Random.randomUUID();
-        authTokenExists = await User.findOne({})
+        authTokenExists = await User.find({})
             .populate({
                 path: "auth",
                 match: { token: accToken },
@@ -50,7 +50,7 @@ router.post("/", async (req, res) => {
             });
     }
     var cookie = Random.randomUUID();
-    var cookieExists = await User.findOne({})
+    var cookieExists = await User.find({})
         .populate({
             path: "auth",
             match: { cookie: cookie },
@@ -58,7 +58,7 @@ router.post("/", async (req, res) => {
         });
     while (cookieExists) {
         cookie = Random.RandomUUID();
-        cookieExists = await User.findOne({})
+        cookieExists = await User.find({})
             .populate({
                 path: "auth",
                 match: { cookie: cookie },
@@ -73,7 +73,7 @@ router.post("/", async (req, res) => {
     userData.save();
 
     res.cookie("QUIZBASH", cookie);
-    return res.status(200).send({ success: true, token: AccToken })
+    return res.send({ success: true, token: accToken })
 });
 
 module.exports = router;
