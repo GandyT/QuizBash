@@ -9,8 +9,8 @@ const Quiz = require("../models/quiz.js");
 router.post("/", async (req, res) => {
     var args = req.body;
 
-    if (!)
-        if (!args.id) return res.send({ success: false, error: "please specify a quiz id" });
+    if (!args.token) return res.send({ success: false, error: "please specify an auth token" });
+    if (!args.id) return res.send({ success: false, error: "please specify a quiz id" });
     if (!args.name) return res.send({ success: false, error: "please specify a quiz name" });
     if (!args.description) return res.send({ success: false, error: "please specify a description" });
     if (!args.thumbnailURL) return res.send({ success: false, error: "please specify a thumbnailURL" });

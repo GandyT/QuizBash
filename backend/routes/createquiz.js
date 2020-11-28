@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
     if (!args.token) return res.send({ success: false, error: "no token provided" });
     if (!args.name) return res.send({ success: false, error: "please provide a name for the quiz" });
 
-    var user = await User.findOne({})
+    var user = await User.find({})
         .populate({
             path: "auth",
             match: { token: args.token },
