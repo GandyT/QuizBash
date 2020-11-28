@@ -6,7 +6,7 @@ const router = Express.Router();
 const Random = require("../modules/random.js");
 
 /* MODELS */
-const User = require("../Models/User.js");
+const User = require("../Models/user.js");
 
 /* VARIABLES */
 const emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

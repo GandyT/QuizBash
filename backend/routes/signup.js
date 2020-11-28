@@ -33,8 +33,8 @@ router.post("/", async (req, res) => {
     var verifyPswd = args["cpassword"];
     var dob = args["dob"];
     var username = args["username"];
-    var firstName = args["firstname"];
-    var lastName = args["lastname"];
+    var firstName = args["firstName"];
+    var lastName = args["lastName"];
 
     if (!username) return res.send({ success: false, error: "Please enter a username" });
     if (!email) return res.send({ success: false, error: "Please enter a valid email address." });
@@ -54,7 +54,7 @@ router.post("/", async (req, res) => {
     if (email.match(emailRegEx) == null) return res.send({ success: false, error: "Invalid Email Address" });
     if (password.length < 8) return res.send({ success: false, error: "Password must be atleast 8 characters." });
     if (password.length > 100) return res.send({ success: false, error: "Max password length is 100 characters" });
-    if (password != VerifyPswd) return res.send({ success: false, error: "The password and the confirmation password are not the same." });
+    if (password != verifyPswd) return res.send({ success: false, error: "The password and the confirmation password are not the same." });
 
     // Email Exists Already
     var emailExists = await User.exists({ email: email });
@@ -85,7 +85,7 @@ router.post("/", async (req, res) => {
     unverifiedUser.save();
 
     // Deletes users who did not verify and the time to verify ran out
-    unverified.find({}, (err, Users) => {
+    Unverified.find({}, (err, Users) => {
         if (err) throw err;
 
         Users.map(user => {

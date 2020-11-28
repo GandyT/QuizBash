@@ -8,6 +8,9 @@ import Login from "./React/Pages/Login/base.js";
 import Signup from "./React/Pages/Signup/base.js";
 import Profile from "./React/Pages/Profile/base.js";
 import Editor from "./React/Pages/Editor/base.js";
+import AwaitEmail from "./React/Pages/AwaitEmail/base.js";
+import VerifyFail from "./React/Pages/VerifyFail/base.js";
+import VerifySuccess from "./React/Pages/VerifySuccess/base.js";
 
 class App extends React.Component {
   render() {
@@ -19,6 +22,9 @@ class App extends React.Component {
           <Route path="/signup" component={Signup} />
           <Route path="/profile" component={Profile} />
           <Route path="/editor" component={Editor} />
+          <Route path="/awaitemail" component={AwaitEmail} />
+          <Route path="/verify/fail" component={VerifyFail} />
+          <Route path="/verify/success" component={VerifySuccess} />
         </Switch>
       </Router>
     );
