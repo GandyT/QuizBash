@@ -67,7 +67,7 @@ router.post("/", async (req, res) => {
     var identifyExists = await Unverified.exists({ identifier: verIdentifier });
 
     while (identifyExists) {
-        verIdentifier = Generator.RandomString(512, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+        verIdentifier = Random.randomString();
         identifyExists = await Unverified.exists({ Identifier: VerIdentifier });
     }
 

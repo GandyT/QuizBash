@@ -12,7 +12,6 @@ const user = Mongoose.Schema({
     avatarURL: String,
     auth: {
         token: String,
-        expires: Number,
         cookie: String
     }
 });
