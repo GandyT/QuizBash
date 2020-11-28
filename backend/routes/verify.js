@@ -6,10 +6,10 @@ const router = Express.Router();
 const Mongoose = require("mongoose");
 
 /* INTERNAL MODULES */
-const Random = require("../Resource/Modules/Generator.js");
+const Random = require("../modules/random.js");
 
 /* MODELS */
-const User = require("../Models/User.js");
+const User = require("../Models/user.js");
 const Unverified = require("../Models/Unverified.js");
 
 router.get("/", async (req, res) => {
