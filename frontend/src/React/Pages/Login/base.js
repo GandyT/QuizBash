@@ -45,12 +45,14 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="loginPage">
                 {this.redirect()}
                 <div className="loginBox" >
+                    <img src="https://i.imgur.com/r42mQyx.png" alt="icon"></img>
+                    <h1>Login</h1>
                     <div className="inputLogin">
-                        <input id="email" type="text" value={this.state.email} />
-                        <input id="password" type="text" value={this.state.password} />
+                        <input className="input-field" id="email" placeholder="Email" type="text" onChange={this.handleChange} value={this.state.email} />
+                        <input className="input-field" id="password" placeholder="Password" type="text" onChange={this.handleChange} value={this.state.password} />
                     </div>
                     <div className="loginBottom">
                         <div className="loginError">{this.renderError()}</div>
