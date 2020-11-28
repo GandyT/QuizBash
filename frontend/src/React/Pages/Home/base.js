@@ -21,12 +21,9 @@ export default class Home extends React.Component {
                         <p>Quizbash is an app that empowers students and teachers, allowing them to easily review material and remember it through the form of quizzes.
                         </p>
                     </div>
-                    <section>
-                        <h2 className="about">About Our App:</h2>
-                        </section>
                     <div>
                     <section className = "card">
-                        <img src="https://i.imgur.com/Q6kb09K.png" alt="study"></img>
+                        <img src="https://i.imgur.com/nMeKSqm.png" alt="study"></img>
                         <div>
                             <h2>Not Your Average App</h2>
                             <p>Instead of having students stare at their notes for hours on end, where they could easily be distracted, teachers can place their students in a fun, game-like enviornment, where they have to choose the correct answers from the questions given. Teachers are free to customize these questions to their liking. Competition breeds excellence!
@@ -53,6 +50,7 @@ export default class Home extends React.Component {
                     <footer>
                         <div>
                         <hr></hr>
+                        <br></br>
                         <h3>Our Team:</h3>
                         <p>Henry Zheng, Youwei (Anthony) Zhen, Randy Sim</p>
                         </div>
