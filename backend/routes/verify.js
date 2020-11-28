@@ -32,9 +32,9 @@ router.get("/", async (req, res) => {
     var identifierExists = Unverified.exists({ identifier: identifier });
     if (!identifierExists) return res.redirect(`${process.env.DOMAIN}/verify/fail`);
 
-    var dataTable = await Unverified.findOne({ identifier: Identifier });
-    var email = Datatable.Email;
-    var password = Datatable.Password;
+    var dataTable = await Unverified.findOne({ identifier: identifier });
+    var email = dataTable.Email;
+    var password = dataTable.Password;
     var userID = Random.randomUUID();
     var userExists = await User.exists({ id: userID });
     while (userExists) {
