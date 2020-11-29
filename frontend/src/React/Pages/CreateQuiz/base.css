@@ -70,11 +70,18 @@
   background: #34c0eb;
 }
 
+
+.textboxtext{
+  position: relative;
+  top: 10%;
+  font-size: 20px;
+
 .generictext{
     color:#34c0eb;
     font-size: 25px;
     padding:20px;
     position: relative;
+
 }
 
 @media (max-width: 1200px) {

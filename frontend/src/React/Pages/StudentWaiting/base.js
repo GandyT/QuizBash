@@ -2,7 +2,7 @@ import React from "react";
 import "./base.css";
 import { Link } from 'react-router-dom'
 
-export default class VerifyFail extends React.Component {
+export default class StudentWaiting extends React.Component {
     render() {
         return (
             <div className="background">
