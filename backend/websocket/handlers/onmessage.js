@@ -1,7 +1,7 @@
 const SManager = require("../socketmanager.js");
 const User = require("../../models/user.js");
 
-const onmessage = async (payload) => {
+const onmessage = async function (payload) {
     var socket = this;
     var data = JSON.parse(payload);
     var op = data.op;

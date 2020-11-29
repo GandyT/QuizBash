@@ -11,7 +11,6 @@ class QuizBox extends React.Component {
             url: "",
             thumbnail: "",
             name: "",
-            redirect: false,
         }
     }
 
@@ -23,18 +22,14 @@ class QuizBox extends React.Component {
         });
     }
 
-    redirect = () => {
-        if (this.state.redirect)
-            return <Redirect to={this.state.url} />
-    }
-
     render() {
         return (
-            <div className="quizBox">
-                {this.state.redirect()}
-                <div className="quizThumbnail" style={{ backgroundImage: `url("${this.state.thumbnail}")` }} />
-                <div className="quizName">{this.state.name}</div>
-            </div>
+            <Link to={this.state.url}>
+                <div className="quizBox">
+                    <div className="quizThumbnail" style={{ backgroundImage: `url("${this.state.thumbnail}")` }} />
+                    <div className="quizName">{this.state.name}</div>
+                </div>
+            </Link>
         )
     }
 }
@@ -58,13 +53,14 @@ export default class Profile extends React.Component {
             return this.setState({ redirectLogin: true });
         Axios.post("api/getuser", { token: token })
             .then(res => {
-                if (res.success) {
-                    this.state.username = res.data.username;
-                    this.state.avatarURL = res.data.avatarURL || "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg";
-                    this.state.quizzes = res.data.quizzes;
-                    this.state.id = res.data.id;
-                    this.state.token = token;
-                    return this.forceUpdate();
+                if (res.data.success) {
+                    return this.setState({
+                        username: res.data.username,
+                        avatarURL: res.data.avatarURL || "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg",
+                        quizzes: res.data.quizzes,
+                        id: res.data.id,
+                        token: token,
+                    });
                 }
                 return this.setState({ redirectLogin: true });
             });
@@ -77,15 +73,22 @@ export default class Profile extends React.Component {
                 <QuizBox name={quiz.name} thumbnail={quiz.thumbnailURL} url={`/hostquiz?id=${quiz.id}`} key={i} />
             )
         });
+        return quizzes;
+    }
+
+    redirectLogin = () => {
+        if (this.state.redirectLogin)
+            return <Redirect to="/login" />
     }
 
     render() {
         return (
             <div className="profilePage">
+                {this.redirectLogin()}
                 <div className="profileTop">
                     <div className="topbar">
                         <div className="avatar" style={{ backgroundImage: `url("https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg")` }} />
-                        <div className="usernameBox">Username:{this.state.username}</div>
+                        <div className="usernameBox">Username:  {this.state.username}</div>
                         <button className="joinButton">Join A Game!</button>
                         <Link to="/editor">
                             <button className="editButton">Quiz Editor</button>
@@ -93,8 +96,12 @@ export default class Profile extends React.Component {
                     </div>
                 </div>
                 <div className="profileBottom">
-                    <div className="quizBox">
+                    <div className="quizSection">
                         <h1>Your Quizzes:</h1>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
                         {this.renderQuizzes()}
                     </div>
                 </div>
