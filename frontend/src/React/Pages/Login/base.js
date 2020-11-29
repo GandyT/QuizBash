@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import React from "react";
 import "./base.css";
 import Session from "../../../resource/session.js";
@@ -58,6 +58,12 @@ export default class Login extends React.Component {
                     <div className="loginBottom">
                         <div className="loginError">{this.renderError()}</div>
                         <button className="loginBtn" onClick={this.login}>Login</button>
+                    </div>
+                    <div className="bottomLogin">
+                        <Link to="/signup">
+                            <br></br>
+                            <a className = "redirect">Don't Have An Account?</a>
+                        </Link>
                     </div>
                 </div>
             </div>

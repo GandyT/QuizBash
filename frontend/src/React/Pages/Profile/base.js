@@ -1,7 +1,7 @@
 import React from "react";
 import Session from "../../../resource/session.js";
 import Axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import "./base.css";
 
 class QuizBox extends React.Component {
@@ -52,23 +52,23 @@ export default class Profile extends React.Component {
         }
     }
 
-    componentDidMount = () => {
-        var token = Session.getToken();
-        if (!token)
-            return this.setState({ redirectLogin: true });
-        Axios.post("api/getuser", { token: token })
-            .then(res => {
-                if (res.success) {
-                    this.state.username = res.data.username;
-                    this.state.avatarURL = res.data.avatarURL || "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg";
-                    this.state.quizzes = res.data.quizzes;
-                    this.state.id = res.data.id;
-                    this.state.token = token;
-                    return this.forceUpdate();
-                }
-                return this.setState({ redirectLogin: true });
-            });
-    }
+    // componentDidMount = () => {
+    //     var token = Session.getToken();
+    //     if (!token)
+    //         return this.setState({ redirectLogin: true });
+    //     Axios.post("api/getuser", { token: token })
+    //         .then(res => {
+    //             if (res.success) {
+    //                 this.state.username = res.data.username;
+    //                 this.state.avatarURL = res.data.avatarURL || "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg";
+    //                 this.state.quizzes = res.data.quizzes;
+    //                 this.state.id = res.data.id;
+    //                 this.state.token = token;
+    //                 return this.forceUpdate();
+    //             }
+    //             return this.setState({ redirectLogin: true });
+    //         });
+    // }
 
     renderQuizzes = () => {
         var quizzes = [];
@@ -81,17 +81,20 @@ export default class Profile extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="profilePage">
                 <div className="profileTop">
-                    <div className="avatarBox">
-                        <div className="avatar" style={{ backgroundImage: `url("${this.state.avatarURL}")` }} />
-                    </div>
-                    <div className="userInfoBox">
-                        <div className="usernameBox">{this.state.username}</div>
+                    <div className="topbar">
+                        <div className="avatar" style={{ backgroundImage: `url("https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg")`}} />
+                        <div className="usernameBox">Username:{this.state.username}</div>
+                        <button className="joinButton">Join A Game!</button>
+                        <Link to="/editor">
+                            <button className="editButton">Quiz Editor</button>
+                        </Link>
                     </div>
                 </div>
                 <div className="profileBottom">
                     <div className="quizBox">
+                        <h1>Your Quizzes:</h1>
                         {this.renderQuizzes()}
                     </div>
                 </div>

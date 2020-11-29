@@ -10,7 +10,7 @@ export default class Home extends React.Component {
             <div>
                 <img className="banner-img" src="https://i.imgur.com/Wv7XJ9f.jpg" alt="landscape"></img>
                 <div className="banner-text">
-                    <h1 className="title">QuizBash</h1>
+                    <h1 className="title">QuizBash!</h1>
                 </div>
                 <div className="buttons">
                     <Link to="/login">
