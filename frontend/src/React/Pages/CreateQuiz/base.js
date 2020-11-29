@@ -19,12 +19,12 @@ export default class CreateQuiz extends React.Component {
 
     componentDidMount = () => {
         var token = Session.getToken();
-        if (!token) this.setState({ loginRedirect: true }); // Comment this line out to work on css
+        // if (!token) this.setState({ loginRedirect: true }); // Comment this line out to work on css
         this.setState({ token: token });
     }
 
     handleChange = (e) => {
-        if (e.target.getAttributes("id") == "quizName") {
+        if (e.target.getAttribute("id") == "quizName") {
             this.state.error = "";
             this.setState({ name: e.target.value })
         } else {
@@ -61,13 +61,18 @@ export default class CreateQuiz extends React.Component {
             <div>
                 {this.redirectLogin()}
                 {this.redirectQuiz()}
-                <div className="quizFieldsBox">
-                    <input className="quizFields" id="quizName" onChange={this.handleChange} type="text" placeholder="Quiz Name" value={this.state.name} />
-                    <input className="quizFields" id="quizDescription" onChange={this.handleChange} type="text" placeholder="Quiz Description" value={this.state.description} />
+                <div className="bar"><h3 className="top-text">Quiz Editor</h3></div>
+                <div className="background">
+                    <div className="add-bar">
+                      <input className="quizFields" id="quizName" onChange={this.handleChange} type="text" placeholder="Quiz Name" value={this.state.name} />
+                      <input className="quizFields" id="quizDescription" onChange={this.handleChange} type="text" placeholder="Quiz Description" value={this.state.description} />
+                      <button className="createQuiz">Create Quiz</button>
+                    </div>
+                    <div>
+                    </div>
                 </div>
                 <div className="quizBoxLower">
                     <div className="quizBoxError">{this.renderError()}</div>
-                    <button className="createQuiz">Create Quiz</button>
                 </div>
             </div>
         )
