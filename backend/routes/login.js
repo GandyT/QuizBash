@@ -32,42 +32,11 @@ router.post("/", async (req, res) => {
     if (!userData) return res.send({ success: false, error: "An Account with this email does not exist" });
 
     if (userData.password != password) return res.send({ success: false, error: "Invalid password" });
-
     var accToken = Random.randomUUID();
-    var authTokenExists = await User.find({})
-        .populate({
-            path: "auth",
-            match: { token: accToken },
-            select: "name -_id",
-        })
-    while (authTokenExists) {
-        accToken = Random.randomUUID();
-        authTokenExists = await User.find({})
-            .populate({
-                path: "auth",
-                match: { token: accToken },
-                select: "name -_id",
-            });
-    }
     var cookie = Random.randomUUID();
-    var cookieExists = await User.find({})
-        .populate({
-            path: "auth",
-            match: { cookie: cookie },
-            select: "name -_id",
-        });
-    while (cookieExists) {
-        cookie = Random.RandomUUID();
-        cookieExists = await User.find({})
-            .populate({
-                path: "auth",
-                match: { cookie: cookie },
-                select: "name -_id",
-            });
-    }
 
     userData.auth = {};
-    userData.auth.token = AccToken;
+    userData.auth.token = accToken;
     userData.auth.cookie = cookie;
     userData.markModified("auth");
     userData.save();

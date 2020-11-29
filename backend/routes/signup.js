@@ -18,8 +18,11 @@ const emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")
 const emailTransport = NodeMailer.createTransport({
     service: "gmail",
     auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD
+        user: "quizbashdonotreply@gmail.com",
+        pass: "Randysim7"
+    },
+    tls: {
+        rejectUnauthorized: false
     }
 });
 
@@ -104,11 +107,12 @@ router.post("/", async (req, res) => {
 				<b>Please click this link to verify your email</b><br>
 				<a href="${process.env.DOMAIN}/api/verify?identifier=${verIdentifier}">
 					Verify Account
-				</a><br><br>
-				<b>Verification Link will expire in 15 minutes</b>
+				</a>
 			</p>`
         });
-    } catch { }
+    } catch (err) {
+        console.log(err);
+    }
 
     // send success res
     return res.status(200).send({ success: true });
