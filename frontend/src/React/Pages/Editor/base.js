@@ -81,7 +81,7 @@ export default class Editor extends React.Component {
     }
 
     render() {
-        {this.redirect()}
+        { this.redirect() }
         return (
 
             <div>
