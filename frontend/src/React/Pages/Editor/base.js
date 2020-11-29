@@ -81,16 +81,17 @@ export default class Editor extends React.Component {
     }
 
     render() {
-        {this.redirect()}
+        { this.redirect() }
         return (
-
             <div>
                 {this.redirect()}
-                <div className="quizSection">
+                <div className="quizEditorSection">
                     <Link to="/createquiz">
-                        <button className="createQuiz" />
+                        <button className="createQuiz">Create Quiz</button>
                     </Link>
-                    {this.renderQuizzes()}
+                    <div className="quizBoxSection">
+                        {this.renderQuizzes()}
+                    </div>
                 </div>
             </div>
         )
