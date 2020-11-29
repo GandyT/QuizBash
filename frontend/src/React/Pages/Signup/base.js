@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import React from "react";
 import "./base.css";
 
@@ -61,25 +61,31 @@ export default class Signup extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="signupPage">
                 {this.redirect()}
                 <div className="signupBox">
+                    <img src="https://i.imgur.com/FdFTkbt.png" alt="icon"></img>
+                    <h1>Signup</h1>
                     <div className="inputBox">
-                        <input className="signupInput" id="username" type="text" placeholder="username" onChange={this.handleChange} value={this.state.username} />
-                        <input className="signupInput" id="email" type="text" placeholder="email" onChange={this.handleChange} value={this.state.email} />
-                        <input className="signupInput" id="firstName" type="text" placeholder="first name" onChange={this.handleChange} value={this.state.firstName} />
-                        <input className="signupInput" id="lastName" type="text" placeholder="last name" onChange={this.handleChange} value={this.state.lastName} />
+                        <input className="signupInput" id="username" type="text" placeholder="Username" onChange={this.handleChange} value={this.state.username} />
+                        <input className="signupInput" id="email" type="text" placeholder="Email" onChange={this.handleChange} value={this.state.email} />
+                        <input className="signupInput" id="firstName" type="text" placeholder="First Name" onChange={this.handleChange} value={this.state.firstName} />
+                        <input className="signupInput" id="lastName" type="text" placeholder="Last Name" onChange={this.handleChange} value={this.state.lastName} />
                         <div className="dobBox">
                             <input className="signupInput" id="dobMonth" type="text" placeholder="MM" onChange={this.handleChange} value={this.state.dobMonth} />
                             <input className="signupInput" id="dobDay" type="text" placeholder="DD" onChange={this.handleChange} value={this.state.dobDay} />
                             <input className="signupInput" id="dobYear" type="text" placeholder="YYYY" onChange={this.handleChange} value={this.state.dobYear} />
                         </div>
-                        <input className="signupInput" id="password" type="password" placeholder="password" onChange={this.handleChange} value={this.state.password} />
-                        <input className="signupInput" id="cpassword" type="password" placeholder="confirm password" onChange={this.handleChange} value={this.state.cpassword} />
+                        <input className="signupInput" id="password" type="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} />
+                        <input className="signupInput" id="cpassword" type="password" placeholder="Confirm password" onChange={this.handleChange} value={this.state.cpassword} />
                     </div>
                     <div className="bottomSignup">
                         <div className="signupError">{this.renderError()}</div>
                         <button className="signupBtn" onClick={this.signup}>Signup</button>
+                        <Link to="/login">
+                            <br></br>
+                            <a className = "redirect">Already Have An Account?</a>
+                        </Link>
                     </div>
                 </div>
             </div>
