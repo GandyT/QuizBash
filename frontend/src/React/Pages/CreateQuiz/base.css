@@ -38,7 +38,7 @@
   top: 5%;
   left:37.5%;
   background-color: white;
-  height: 30%;
+  height: 100vh;
   width: 25%;
   border-radius: 10px;
 
@@ -70,12 +70,6 @@
   background: #34c0eb;
 }
 
-.questions{
-  position: relative;
-  top: 5%;
-  align-items: center;
-  text-align: center;
-}
 .generictext{
     color:#34c0eb;
     font-size: 25px;
