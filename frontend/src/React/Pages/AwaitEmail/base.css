@@ -1,0 +1,26 @@
+.awaitPage {
+  margin: 0;
+  background-image: url(https://media.discordapp.net/attachments/597469178412400641/782382011045642300/Wallpaper-Gradient-Blue-Green-HD-4K-Minimal-9455.jpg?width=1204&height=677);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+  text-align: center;
+  overflow-y: hidden;
+}
+.awaitBox {
+  margin: 8% auto;
+  border-radius: 15px;
+  background-color: #2c2f33;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  width: 500px;
+}
+.awaitBox img {
+  width: 120px;
+}
+.awaitBox h1 {
+  margin-top: 25px;
+}
