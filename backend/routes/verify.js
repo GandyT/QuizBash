@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
     if (identifier == null) return res.redirect("http://www.youtube.com/watch?v=dQw4w9WgXcQ");
     if (typeof identifier != "string") return res.redirect("http://www.youtube.com/watch?v=dQw4w9WgXcQ");
     var identifierExists = Unverified.exists({ identifier: identifier });
-    if (!identifierExists) return res.redirect(`${process.env.DOMAIN}/verify/fail`);
+    if (!identifierExists) return res.redirect(`http://${process.env.DOMAIN}:3000/verify/fail`);
 
     var dataTable = await Unverified.findOne({ identifier: identifier });
     var userID = Random.randomUUID();
@@ -64,7 +64,7 @@ router.get("/", async (req, res) => {
 
     // Redirect to Success Page
 
-    return res.redirect(`${process.env.DOMAIN}/verify/success`);
+    return res.redirect(`http://${process.env.DOMAIN}:3000/verify/success`);
 });
 
 module.exports = router;
