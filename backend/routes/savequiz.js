@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
             path: "auth",
             match: { token: args.token },
             select: "name -_id",
-        });
+        }).exec();
     if (!user) return res.send({ success: false, error: "invalid auth token" });
     if (user.id != quiz.creatorId) return res.send({ success: false, error: "you are not the creator of this quiz" });
 
