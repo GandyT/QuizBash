@@ -1,5 +1,5 @@
 function makeChart(ctx, datasets, ylabel, toplabel) {
-  dict = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0 }
+  var dict = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0 }
   for (const item of datasets) {
     if (item == 100) {
       dict[9] += 1
@@ -8,7 +8,7 @@ function makeChart(ctx, datasets, ylabel, toplabel) {
       dict[Math.floor(item / 10)] += 1
     }
   }
-  somelist = []
+  var somelist = []
   for (const key in Object.keys(dict)) {
     somelist.push(dict[key]);
   }
