@@ -89,7 +89,9 @@ export default class Profile extends React.Component {
                     <div className="topbar">
                         <div className="avatar" style={{ backgroundImage: `url("https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg")` }} />
                         <div className="usernameBox">Username:  {this.state.username}</div>
-                        <button className="joinButton">Join A Game!</button>
+                        <Link to="/joinquiz">
+                            <button className="joinButton">Join A Game!</button>
+                        </Link>
                         <Link to="/editor">
                             <button className="editButton">Quiz Editor</button>
                         </Link>

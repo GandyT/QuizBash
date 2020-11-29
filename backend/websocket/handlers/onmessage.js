@@ -15,12 +15,12 @@ const onmessage = async function (payload) {
         SManager.hostJoin(data.gameId, data.token, socket);
     } else if (op == 2) {
         // Player Connect
-        var player = await User.find({})
+        var player = await User.findOne({})
             .populate({
                 path: "auth",
                 match: { token: data.token },
                 select: "name -_id",
-            });
+            }).exec();
         if (!player) return socket.send(JSON.stringify({ op: 402, t: "INVALID_TOKEN" }));
         SManager.joinGame(data.gameId, data.token, socket, player.username);
     } else if (op == 3) {
