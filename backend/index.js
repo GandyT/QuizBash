@@ -27,6 +27,7 @@ app.use("/api/createquiz", require("./routes/createquiz.js"));
 app.use("/api/savequiz", require("./routes/savequiz.js"));
 app.use("/api/getquiz", require("./routes/getquiz.js"));
 app.use("/api/getuser", require("./routes/getuser.js"));
+app.use("/api/creategame", require("./routes/creategame.js"));
 
 
 /* CATCH-ALL FRONTEND */
