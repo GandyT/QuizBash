@@ -79,3 +79,5 @@ function makeChart(ctx, datasets, ylabel, toplabel) {
   //
   // });
 }
+
+export default makeChart;
