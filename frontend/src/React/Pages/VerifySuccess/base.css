@@ -30,12 +30,12 @@
   top: 10%;
   width: 150px;
 }
-.sometext{
-  font-size: 30px;
+.text{
   position: relative;
-  top: 20%;
-  margin-bottom: 5%;
+  top:10%;
+  font-size: 30px;
   padding: 20px;
+  color: white;
 }
 .linkcolor{
   color:#4fb0d6;
@@ -45,8 +45,10 @@
   .roundimage {
     width: 50px;
   }
-  .sometext {
+  .text {
     font-size: 15px;
+    top: 5%;
+    padding-bottom: 0px;
   }
   .theotherdiv {
     height: 30%;

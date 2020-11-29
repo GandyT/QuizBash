@@ -19,7 +19,7 @@ export default class CreateQuiz extends React.Component {
 
     componentDidMount = () => {
         var token = Session.getToken();
-        // if (!token) this.setState({ loginRedirect: true }); // Comment this line out to work on css
+        if (!token) this.setState({ loginRedirect: true }); // Comment this line out to work on css
         this.setState({ token: token });
     }
 
@@ -64,7 +64,10 @@ export default class CreateQuiz extends React.Component {
                 <div className="bar"><h3 className="top-text">Quiz Editor</h3></div>
                 <div className="background">
                     <div className="add-bar">
-                      <h3 className="generictext">Please enter the information for the quiz below:</h3>
+                      <h3 className="textboxtext">Please enter the following fields:</h3>
+                      <br></br>
+                      <br></br>
+                      <br></br>
                       <input className="quizFields" id="quizName" onChange={this.handleChange} type="text" placeholder="Quiz Name" value={this.state.name} />
                       <br></br>
                       <br></br>
