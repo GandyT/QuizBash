@@ -35,7 +35,7 @@ module.exports = {
             choices: [],
             choice: 100,
         });
-
+        games[gameId].hostSocket.send(JSON.stringify({ op: 17, t: "PLAYER_JOIN", username: username }));
         socket.send(JSON.stringify({ op: 200, t: "SUCCESSFUL_CONNECTION" }));
     },
     startGame: function (gameId, hostToken, socket) {
@@ -80,22 +80,18 @@ module.exports = {
             var payload = {
                 op: 6,
                 t: "ROUND_END",
-                choice: p.choice,
-                correct: games[gameId].questions[games[gameId].round].correct
             }
             p.socket.send(JSON.stringify(payload));
-            p.choices.push(payload.choice);
+            p.choices.push(p.choice);
             p.choice = 100;
             return p;
         });
         if (games[gameId].round == games[gameId].questions.length - 1) {
-            games[gameId].hostSocket.send(JSON.stringify({ players: games[gameId].players }));
+            games[gameId].hostSocket.send(JSON.stringify({ op: 7, t: "GAME_END", players: games[gameId].players }));
             games[gameId].players.forEach(p => {
                 var payload = {
                     op: 7,
                     t: "GAME_END",
-                    questions: games[gameId].questions,
-                    choices: p.choices,
                 }
 
                 p.socket.send(JSON.stringify(payload));

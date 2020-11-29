@@ -13,7 +13,7 @@ import VerifyFail from "./React/Pages/VerifyFail/base.js";
 import VerifySuccess from "./React/Pages/VerifySuccess/base.js";
 import CreateQuiz from "./React/Pages/CreateQuiz/base.js";
 import StudentWaiting from "./React/Pages/StudentWaiting/base.js";
-import TeacherWait from "./React/Pages/TeacherWaiting/base.js";
+import TeacherWaiting from "./React/Pages/TeacherWaiting/base.js";
 import EditQuiz from "./React/Pages/EditQuiz/base.js";
 
 class App extends React.Component {
@@ -31,7 +31,7 @@ class App extends React.Component {
           <Route path="/verify/success" component={VerifySuccess} />
           <Route path="/createquiz" component={CreateQuiz} />
           <Route path="/studentwait" component={StudentWaiting} />
-          <Route path="/teacherwait" component={TeacherWait} />
+          <Route path="/hostquiz" component={TeacherWaiting} />
           <Route path="/editquiz" component={EditQuiz} />
         </Switch>
       </Router>
