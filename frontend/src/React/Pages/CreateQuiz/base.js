@@ -66,8 +66,13 @@ export default class CreateQuiz extends React.Component {
                 <div className="bar"><h3 className="top-text">Quiz Editor</h3></div>
                 <div className="background">
                     <div className="add-bar">
+                      <h3 className="generictext">Please enter the information for the quiz below:</h3>
                       <input className="quizFields" id="quizName" onChange={this.handleChange} type="text" placeholder="Quiz Name" value={this.state.name} />
+                      <br></br>
+                      <br></br>
                       <input className="quizFields" id="quizDescription" onChange={this.handleChange} type="text" placeholder="Quiz Description" value={this.state.description} />
+                      <br></br>
+                      <br></br>
                       <button className="createQuiz">Create Quiz</button>
                     </div>
                     <div>
