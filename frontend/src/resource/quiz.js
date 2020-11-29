@@ -7,7 +7,7 @@ export default class QuizForm {
     this.creatorId = creatorId;
     this.description = description;
     this.thumbnailURL = thumbnailURL;
-    this.questions = questions.length > 0 ? questions : [{ question: "", choices: ["edit choice"], correctchoice: 0 }];
+    this.questions = questions.length > 0 ? questions : [{ question: "edit question", choices: ["edit choice"], correctchoice: 0 }];
   }
 
   get(parameter) {
@@ -38,11 +38,8 @@ export default class QuizForm {
     }
     this.questions.splice(index, 1);
   }
-  addQuestion(question) {
-    if (Array.isArray(choices) == false) {
-      throw new Error("Choices must be an array!")
-    }
-    this.questions.push({ question: question, choices: ["edit choice"], correctchoice: 0 });
+  addQuestion() {
+    this.questions.push({ question: "edit question", choices: ["edit choice"], correctchoice: 0 });
   }
   setQuestion(index, newQuestion) {
     this.questions[index] = newQuestion;
