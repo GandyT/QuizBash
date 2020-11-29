@@ -1,0 +1,32 @@
+.finishquizPage {
+  margin: 0;
+  background-image: url(https://media.discordapp.net/attachments/597469178412400641/782382011045642300/Wallpaper-Gradient-Blue-Green-HD-4K-Minimal-9455.jpg?width=1204&height=677);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+  text-align: center;
+}
+.finishquizText {
+  position: relative;
+  top: 125px;
+  margin: auto;
+  border-radius: 15px;
+  background-color: #2c2f33;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  width: 500px;
+}
+.finishquizText img {
+  width: 120px;
+  margin-bottom: 25px;
+}
+
+.finishquizText h1 {
+  margin-bottom: 25px;
+}
+.finishquizText h2 {
+  margin-bottom: 25px;
+}

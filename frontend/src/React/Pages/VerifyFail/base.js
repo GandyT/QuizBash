@@ -8,8 +8,8 @@ export default class VerifyFail extends React.Component {
             <div className="thewholebackground">
               <div className="theotherdiv">
                 <img className="roundimage" src="https://i.imgur.com/Y03QlRm.png"></img>
-                <h3 className="sometext">Verified Failed! Click the link below to return to home page!</h3>
-                <Link className= "sometext linkcolor" to="/"><h5 className="linkcolor">Click this link!</h5></Link>
+                <h3 className="text">Verified Failed! Click the link below to return to home page!</h3>
+                <Link className="text linkcolor" to="/"><h5 className="linkcolor">Click this link!</h5></Link>
               </div>
             </div>
         )

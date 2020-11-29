@@ -3,6 +3,7 @@ import "./base.css";
 import { Link } from 'react-router-dom'
 
 export default class VerifySuccess extends React.Component {
+
   render() {
     return (
       <div className="thewholebackground">
@@ -14,4 +15,5 @@ export default class VerifySuccess extends React.Component {
       </div>
     )
   }
+
 }

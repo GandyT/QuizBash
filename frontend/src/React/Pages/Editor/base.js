@@ -52,7 +52,7 @@ export default class Editor extends React.Component {
 
     componentDidMount = () => {
         var token = Session.getToken();
-        if (!token) return this.setState({ loginRedirect: true });
+        // if (!token) return this.setState({ loginRedirect: true }); // Comment this line out to work on css
 
         Axios.post("api/getuser", { token: token })
             .then(res => {
