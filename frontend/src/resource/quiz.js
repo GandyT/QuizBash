@@ -7,7 +7,7 @@ export default class QuizForm {
     this.creatorId = creatorId;
     this.description = description;
     this.thumbnailURL = thumbnailURL;
-    this.questions = questions.length > 0 ? questions : [{ question: "edit question", choices: ["edit choice"], correctchoice: 0 }];
+    this.questions = questions.length > 0 ? questions : [{ question: "edit question", choices: ["edit choice"], correctchoice: 0, time: 30 }];
   }
 
   get(parameter) {
@@ -39,7 +39,7 @@ export default class QuizForm {
     this.questions.splice(index, 1);
   }
   addQuestion() {
-    this.questions.push({ question: "edit question", choices: ["edit choice"], correctchoice: 0 });
+    this.questions.push({ question: "edit question", choices: ["edit choice"], correctchoice: 0, time: 30 });
   }
   setQuestion(index, newQuestion) {
     this.questions[index] = newQuestion;
