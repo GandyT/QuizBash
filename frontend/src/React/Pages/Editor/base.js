@@ -3,9 +3,6 @@ import { Redirect, Link } from "react-router-dom";
 import Axios from "axios";
 import Session from "../../../resource/session.js";
 import "./base.css";
-import Axios from "axios";
-import Session from "../../../resource/session.js";
-import { Redirect } from "react-router-dom";
 
 
 class QuizBox extends React.Component {
