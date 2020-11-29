@@ -37,7 +37,7 @@
   position: relative;
   top: 5%;
   left:37.5%;
-  background-color: white;
+  background-color: #2c2f33;
   height: 30%;
   width: 25%;
   border-radius: 10px;
@@ -77,11 +77,26 @@
   text-align: center;
 }
 .generictext{
-    color:#34c0eb;
+    position: relative;
+    top:20%;
+    color:white;
     font-size: 25px;
     padding:20px;
 }
-
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.spin{
+  position: relative;
+  top:10%;
+  width: 100px;
+  animation: rotation 2s infinite linear;
+}
 @media (max-width: 1200px) {
   .add-bar{
     left:10%;
