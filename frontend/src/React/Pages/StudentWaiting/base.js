@@ -2,6 +2,8 @@ import React from "react";
 import "./base.css";
 import { Redirect } from "react-router-dom";
 import Session from "../.././../resource/session.js";
+import QuestionDone from "../QuestionDone/base.js";
+import FinishQuiz from "../FinishQuiz/base.js";
 
 class WaitingRoom extends React.Component {
     render() {
@@ -66,6 +68,7 @@ export default class StudentWaiting extends React.Component {
         }
 
         ws.onmessage = payload => {
+            console.log(payload);
             var data = JSON.parse(payload.data);
             var op = data.op;
 
@@ -76,7 +79,13 @@ export default class StudentWaiting extends React.Component {
                     currentQuestion: {
                         header: data.question,
                         choices: data.choices
-                    }
+                    },
+                    started: true,
+                })
+            } else if (op == 7) {
+                // GAME_END
+                this.setState({
+                    ended: true
                 })
             }
         }
@@ -88,20 +97,23 @@ export default class StudentWaiting extends React.Component {
             var choices = [];
             this.state.currentQuestion.choices.forEach((choice, i) => {
                 choices.push(
-                    <div className="gameChoice" key={i}>
-                        <button className="gameChoiceBtn" onClick={() => {
-                            this.state.ws.send(JSON.stringify({
-                                op: 3,
-                                token: this.state.token,
-                                gameId: this.state.gameId,
-                                choice: i
-                            }))
-                            this.setState({
-                                chosen: true,
-                            })
-                        }} />
-                        {choice}
-                    </div>
+                    <React.Fragment>
+                        <div className="gameChoice" key={i}>
+                            <button className="gameChoiceBtn" onClick={() => {
+                                this.state.ws.send(JSON.stringify({
+                                    op: 3,
+                                    token: this.state.token,
+                                    gameId: this.state.gameId,
+                                    choice: i
+                                }))
+                                this.setState({
+                                    chosen: true,
+                                })
+                            }} />
+                            {choice}
+                        </div>
+                        <div className="break" />
+                    </React.Fragment>
                 )
             })
             return choices;
@@ -109,15 +121,19 @@ export default class StudentWaiting extends React.Component {
 
         return (
             <div className="gameQuestionPage">
-                <div className="gameQuestionName">this.state.currentQuestion.header</div>
-                <div className="gameQuestionChoices">
-                    {this.renderChoices()}
-                </div>
+                <div className="gameQuestionName">{this.state.currentQuestion.header}</div>
+                <div className="break" />
+                <div className="break" />
+                {renderChoices()}
             </div>
         )
     }
 
     render() {
+        if (this.state.ended)
+            return <FinishQuiz />
+        if (this.state.chosen)
+            return <QuestionDone />
         if (this.state.started)
             return this.renderQuestionPage();
         if (!this.state.started && this.state.joined)

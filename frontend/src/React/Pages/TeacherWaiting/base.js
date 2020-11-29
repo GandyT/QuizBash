@@ -144,9 +144,23 @@ export default class TeacherWaiting extends React.Component {
         return students;
     }
 
+    calculateScores = () => {
+        var students = [];
+        this.state.playersFinal.forEach(p => {
+            var correct = 0;
+            p.choices.forEach((choice, i) => {
+                console.log(`${choice} - ${this.state.questions[i].correctchoice}`)
+                if (parseInt(choice) == parseInt(this.state.questions[i].correctchoice))
+                    correct++;
+            })
+            students.push({ username: p.username, score: (correct / p.choices.length) * 100 });
+        })
+        return students;
+    }
+
     render() {
         if (this.state.ended) {
-            return <TeacherFinish students={this.playersFinal} />
+            return <TeacherFinish students={this.calculateScores()} />
         }
         if (this.state.started) {
             return this.renderPage();

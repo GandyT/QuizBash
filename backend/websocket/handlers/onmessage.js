@@ -25,7 +25,7 @@ const onmessage = async function (payload) {
         SManager.joinGame(data.gameId, data.token, socket, player.username);
     } else if (op == 3) {
         // Player Choose
-        if (!data.choice) return socket.send(JSON.stringify({ op: 403, t: "NO_CHOICE" }));
+        if (!data.choice && data.choice !== 0) return socket.send(JSON.stringify({ op: 403, t: "NO_CHOICE" }));
         SManager.choose(data.gameId, data.token, data.choice, socket);
     } else if (op == 4) {
         // Teacher Start Game
