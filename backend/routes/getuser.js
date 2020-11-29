@@ -24,24 +24,23 @@ router.post("/", async (req, res) => {
             }
         });
     } else if (args.token) {
-        fetchedUser = await User.find({})
+        fetchedUser = await User.findOne({})
             .populate({
                 path: "auth",
                 match: { token: args.token },
                 select: "name -_id",
-            });
+            }).exec();
         if (!fetchedUser) return res.send({ success: false, error: "invalid auth token" });
 
         return res.send({
-            success: true, user: {
-                username: fetchedUser.username,
-                email: fetchedUser.email,
-                firstName: fetchedUser.firstName,
-                lastName: fetchedUser.lastName,
-                id: fetchedUser.id,
-                avatarURL: fetchedUser.avatarURL,
-                quizzes: fetchedUser.quizzes,
-            }
+            success: true,
+            username: fetchedUser.username,
+            email: fetchedUser.email,
+            firstName: fetchedUser.firstName,
+            lastName: fetchedUser.lastName,
+            id: fetchedUser.id,
+            avatarURL: fetchedUser.avatarURL,
+            quizzes: fetchedUser.quizzes,
         });
     }
 

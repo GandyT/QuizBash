@@ -30,7 +30,6 @@ export default class Login extends React.Component {
     login = () => {
         Axios.post("api/login", { email: this.state.email, password: this.state.password })
             .then(res => {
-                console.log(res);
                 if (res.data.success) {
                     Session.setToken(res.data.token);
                     return this.setState({ login: true });
@@ -62,7 +61,7 @@ export default class Login extends React.Component {
                     <div className="bottomLogin">
                         <Link to="/signup">
                             <br></br>
-                            <a className = "redirect">Don't Have An Account?</a>
+                            <div className="redirect">Don't Have An Account?</div>
                         </Link>
                     </div>
                 </div>
