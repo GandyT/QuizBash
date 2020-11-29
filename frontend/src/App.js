@@ -14,6 +14,9 @@ import VerifySuccess from "./React/Pages/VerifySuccess/base.js";
 import CreateQuiz from "./React/Pages/CreateQuiz/base.js";
 import TeacherWait from "./React/Pages/TeacherWaiting/base.js"
 import TeacherFinish from './React/Pages/TeacherFinish/base.js'
+import QuestionDone from "./React/Pages/QuestionDone/base.js"
+import RoundEnd from "./React/Pages/RoundEnd/base.js"
+import FinishQuiz from "./React/Pages/FinishQuiz/base.js"
 
 class App extends React.Component {
   render() {
@@ -31,6 +34,9 @@ class App extends React.Component {
           <Route path="/createquiz" component={CreateQuiz} />
           <Route path="/teacherwait" component={TeacherWait}/>
           <Route path="/teacherfinish" component={TeacherFinish}/>
+          <Route path ="/questiondone" component={QuestionDone}/>
+          <Route path="/roundend" component={RoundEnd}/>
+          <Route path="/finishquiz" component={FinishQuiz}/>
         </Switch>
       </Router>
     );
