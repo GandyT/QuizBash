@@ -53,9 +53,8 @@
   border-radius: 10px;
   outline: none;
 }
-.createQuiz{
+.editorCreateQuiz{
   transition: 0.3s all ease;
-  position: relative;
   top: 5%;
   color:black;
   padding:10px;
@@ -63,17 +62,26 @@
   background: white;
   border-radius: 10px;
   outline: none;
+  z-index: 7;
 }
 
-.createQuiz:hover{
+.editorCreateQuiz:hover{
   color: white;
   background: #34c0eb;
 }
+
 
 .textboxtext{
   position: relative;
   top: 10%;
   font-size: 20px;
+
+.generictext{
+    color:#34c0eb;
+    font-size: 25px;
+    padding:20px;
+    position: relative;
+
 }
 
 @media (max-width: 1200px) {
@@ -86,3 +94,4 @@
     padding: 10px 100px 10px 10px;
   }
 }
+

@@ -1,4 +1,4 @@
-.awaitPage {
+.roundendPage {
   margin: 0;
   background-image: url(https://media.discordapp.net/attachments/597469178412400641/782382011045642300/Wallpaper-Gradient-Blue-Green-HD-4K-Minimal-9455.jpg?width=1204&height=677);
   height: 100vh;
@@ -7,10 +7,11 @@
   background-size: cover;
   align-items: center;
   text-align: center;
-  overflow-y: hidden;
 }
-.awaitBox {
-  margin: 8% auto;
+.roundendText {
+  position: relative;
+  top: 125px;
+  margin: auto;
   border-radius: 15px;
   background-color: #2c2f33;
   padding: 20px;
@@ -18,9 +19,13 @@
   align-items: center;
   width: 500px;
 }
-.awaitBox img {
+.roundendText img {
   width: 120px;
+  margin-bottom: 25px;
 }
-.awaitBox h1 {
-  margin-top: 25px;
+.roundendText h1 {
+  margin-bottom: 25px;
+}
+.roundendText h2 {
+  margin-bottom: 25px;
 }

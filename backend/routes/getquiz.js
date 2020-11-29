@@ -13,13 +13,13 @@ router.post("/", async (req, res) => {
     if (!quiz) return res.send({ success: false, error: "invalid quiz id" });
 
     res.send({
-        success: true, quiz: {
-            name: quiz.name,
-            creatorId: quiz.creatorId,
-            thumbnailURL: quiz.thumbnailURL,
-            description: quiz.description,
-            questions: quiz.questions
-        }
+        success: true,
+        name: quiz.name,
+        creatorId: quiz.creatorId,
+        thumbnailURL: quiz.thumbnailURL,
+        description: quiz.description,
+        questions: quiz.questions
+
     });
 });
 

@@ -81,32 +81,18 @@ export default class Editor extends React.Component {
     }
 
     render() {
-        {this.redirect()}
+        { this.redirect() }
         return (
-
-            <div className="background">
-                <div className="sidebar">
-                    <h3 className="sidebartext">Question #:</h3>
-                    <br></br>
-                    <h3 className="placeholder">SOME NUMBER HERE</h3>
-                    <br></br>
-                    <h3 className="sidebartext">Name:</h3>
-                    <br></br>
-                    <h3 className="placeholder">SOME NAME HERE</h3>
-                    <button className="quizbuttons">Delete question</button>
-                    <button className="quizbuttons">Save</button>
-                    <button className="quizbuttons">Add question</button>
-                </div>
-                <div className="questionHolder">
-                    <div className="individualquestion">
-                        <h3 className="sectiontext">Question: </h3>
-                        <h3 className="answertext">Some random question here!</h3>
-                        <h3 className="sectiontext">Answer: </h3>
-                        <h3 className="answertext">Some random answer here!</h3>
+            <div>
+                {this.redirect()}
+                <div className="quizEditorSection">
+                    <Link to="/createquiz">
+                        <button className="createQuiz">Create Quiz</button>
+                    </Link>
+                    <div className="quizBoxSection">
+                        {this.renderQuizzes()}
                     </div>
                 </div>
-                {this.redirect()}
-                    {this.renderQuizzes()}
             </div>
         )
     }

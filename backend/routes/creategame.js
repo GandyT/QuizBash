@@ -10,12 +10,12 @@ const SManager = require("../websocket/socketmanager.js");
 router.post("/", async (req, res) => {
     var args = req.body;
     if (!args.token) return res.send({ success: false, error: "please specify a token" });
-    if (!args.quizId) return res.send({ success: false, error: "please specify" });
+    if (!args.quizId) return res.send({ success: false, error: "please specify a quizId" });
 
     var user = await User.find({})
         .populate({
             path: "auth",
-            match: { token: accToken },
+            match: { token: args.token },
             select: "name -_id",
         });
     if (!user) return res.send({ success: false, error: "invalid auth token" });
@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
     }
 
     SManager.createGame(args.token, gameId, quiz.questions);
-    return res.send({ success: true, gameId: gameId });
+    return res.send({ success: true, gameId: gameId, questions: quiz.questions });
 });
 
 module.exports = router;

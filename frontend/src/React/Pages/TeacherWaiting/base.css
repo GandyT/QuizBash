@@ -1,0 +1,79 @@
+.teacherWaiting {
+  margin: 0;
+  background-image: url(https://media.discordapp.net/attachments/597469178412400641/782382011045642300/Wallpaper-Gradient-Blue-Green-HD-4K-Minimal-9455.jpg?width=1204&height=677);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+  text-align: center;
+}
+.teacherText {
+  position: relative;
+  top: 125px;
+  margin: auto;
+  border-radius: 15px;
+  background-color: #2c2f33;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  width: 500px;
+}
+.teacherText img {
+  animation: rotation 2s infinite linear;
+  width: 120px;
+}
+.teacherText h1 {
+  margin-top: 25px;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.startBtn {
+  margin-top: 100px;
+  transition: 0.3s all ease;
+  border: 2px solid black;
+  cursor: pointer;
+  white-space: nowrap;
+  color: white;
+  font-size: 20px;
+  background-color: skyblue;
+  text-align: center;
+  padding: 15px 45px;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  border-radius: 20px;
+}
+.startBtn:hover {
+  color: #bbbbbb;
+  transition: 0.6s all ease;
+  background-color: rgb(79, 176, 214);
+}
+
+.quizQuestionPage {
+  background: #2c2f33;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.quizQuestionTitle {
+  font-size: 32px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+.timeRemaining {
+  margin-top: 100px;
+  font-size: 25px;
+  position: relative;
+}

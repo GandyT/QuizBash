@@ -34,8 +34,10 @@ export default class CreateQuiz extends React.Component {
     }
 
     createQuiz = () => {
+        console.log("creating quiz");
         Axios.post("api/createquiz", { token: this.state.token, name: this.state.name, description: this.state.description })
             .then(res => {
+                console.log(res);
                 if (!res.data.success)
                     return this.setState({ loginRedirect: true });
                 this.setState({ quizurl: `/editquiz?id=${res.data.quizId}` });
@@ -74,13 +76,11 @@ export default class CreateQuiz extends React.Component {
                       <input className="quizFields" id="quizDescription" onChange={this.handleChange} type="text" placeholder="Quiz Description" value={this.state.description} />
                       <br></br>
                       <br></br>
-                      <button className="createQuiz">Create Quiz</button>
+                      <div className="quizBoxError">{this.renderError()}</div>
+                      <button className="createQuiz" onClick={this.createQuiz}>Create Quiz</button>
                     </div>
                     <div>
                     </div>
-                </div>
-                <div className="quizBoxLower">
-                    <div className="quizBoxError">{this.renderError()}</div>
                 </div>
             </div>
         )
