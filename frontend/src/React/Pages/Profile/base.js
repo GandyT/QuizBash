@@ -74,7 +74,7 @@ export default class Profile extends React.Component {
         var quizzes = [];
         this.state.quizzes.forEach((quiz, i) => {
             quizzes.push(
-                <QuizBox className="quizBox"name={quiz.name} thumbnail={quiz.thumbnailURL} url={`/hostquiz/${quiz.id}`} key={i} />
+                <QuizBox name={quiz.name} thumbnail={quiz.thumbnailURL} url={`/hostquiz?id=${quiz.id}`} key={i} />
             )
         });
     }

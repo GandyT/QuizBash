@@ -30,6 +30,7 @@ export default class Login extends React.Component {
     login = () => {
         Axios.post("api/login", { email: this.state.email, password: this.state.password })
             .then(res => {
+                console.log(res);
                 if (res.data.success) {
                     Session.setToken(res.data.token);
                     return this.setState({ login: true });
@@ -52,11 +53,11 @@ export default class Login extends React.Component {
                     <h1>Login</h1>
                     <div className="inputLogin">
                         <input className="input-field" id="email" placeholder="Email" type="text" onChange={this.handleChange} value={this.state.email} />
-                        <input className="input-field" id="password" placeholder="Password" type="text" onChange={this.handleChange} value={this.state.password} />
+                        <input className="input-field" id="password" placeholder="Password" type="password" onChange={this.handleChange} value={this.state.password} />
                     </div>
                     <div className="loginBottom">
                         <div className="loginError">{this.renderError()}</div>
-                        <button className="loginBtn">Login</button>
+                        <button className="loginBtn" onClick={this.login}>Login</button>
                     </div>
                     <div className="bottomLogin">
                         <Link to="/signup">
