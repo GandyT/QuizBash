@@ -7,13 +7,13 @@
   -webkit-user-drag: none;
   object-fit: cover;
 }
-.thewholefuckingbackground{
+.thewholebackground{
   background: rgb(20,56,230);
   background: linear-gradient(200deg, rgba(209, 15, 15) 0%, rgba(247, 121, 121) 50%);
   height: 100vh;
   align-items: center;
 }
-.thefuckingotherdiv{
+.theotherdiv{
   position: relative;
   left:25%;
   top:25%;
@@ -25,12 +25,12 @@
   border-radius: 10px;
   padding: 20px;
 }
-.fuckingroundimage{
+.roundimage{
   position: relative;
   top: 10%;
   width: 150px;
 }
-.verylongvariablethatyouwontbeabletounderstandasingletimebecauselongvariableequalsicannotgetfired{
+.sometext{
   font-size: 30px;
   position: relative;
   top: 20%;
@@ -41,13 +41,13 @@
 }
 
 @media (max-width: 1200px) {
-  .fuckingroundimage {
+  .roundimage {
     width: 50px;
   }
-  .verylongvariablethatyouwontbeabletounderstandasingletimebecauselongvariableequalsicannotgetfired {
+  .sometext {
     font-size: 15px;
   }
-  .thefuckingotherdiv {
+  .theotherdiv {
     height: 30%;
     width: 60%;
     left:20%;
