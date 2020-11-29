@@ -1,7 +1,7 @@
 import React from "react";
 import "./base.css";
 
-export default class questionEnd extends React.Component {
+export default class QuestionDone extends React.Component {
     render() {
         return (
             <div className="questionendPage">

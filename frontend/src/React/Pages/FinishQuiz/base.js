@@ -1,7 +1,7 @@
 import React from "react";
 import "./base.css";
 
-export default class finishQuiz extends React.Component {
+export default class FinishQuiz extends React.Component {
     render() {
         return (
             <div className="finishquizPage">

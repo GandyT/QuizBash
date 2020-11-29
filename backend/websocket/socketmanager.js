@@ -47,10 +47,10 @@ module.exports = {
     },
     choose: function (gameId, token, choice, socket) {
         if (!games[gameId]) return;
-        if (isNaN(choice)) return;
-        var player = games[gameId].players.find(p => p.token == token);
-        if (!player) return socket.send(JSON.stringify({ op: 402, t: "INVALID_TOKEN" }))
-        player.choice = choice;
+        if (isNaN(parseInt(choice))) return;
+        var playerIndex = games[gameId].players.findIndex(p => p.token == token);
+        if (playerIndex == -1) return socket.send(JSON.stringify({ op: 402, t: "INVALID_TOKEN" }))
+        games[gameId].players[playerIndex].choices.push(parseInt(choice));
         games[gameId].hostSocket.send(JSON.stringify({ op: 11, t: "PLAYER_CHOOSE", choice: choice }));
         socket.send(JSON.stringify({ op: 12, t: "FINISHED_CHOOSE" }));
     },
@@ -82,12 +82,15 @@ module.exports = {
                 t: "ROUND_END",
             }
             p.socket.send(JSON.stringify(payload));
-            p.choices.push(p.choice);
             p.choice = 100;
             return p;
         });
         if (games[gameId].round == games[gameId].questions.length - 1) {
-            games[gameId].hostSocket.send(JSON.stringify({ op: 7, t: "GAME_END", players: games[gameId].players }));
+            var players = [];
+            games[gameId].players.forEach(p => {
+                players.push({ username: p.username, choices: p.choices })
+            })
+            games[gameId].hostSocket.send(JSON.stringify({ op: 7, t: "GAME_END", players: players }));
             games[gameId].players.forEach(p => {
                 var payload = {
                     op: 7,
