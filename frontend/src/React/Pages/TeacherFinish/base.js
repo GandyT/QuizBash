@@ -1,7 +1,7 @@
 import React from "react";
 import "./base.css";
 
-export default class teacherFinish extends React.Component {
+export default class TeacherFinish extends React.Component {
     render() {
         return (
             <div className="teacherFinish">

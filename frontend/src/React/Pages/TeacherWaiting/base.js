@@ -2,6 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import Session from "../../../resource/session.js";
 import Axios from "axios";
+import TeacherFinish from "../TeacherFinish/base.js";
 import "./base.css";
 
 export default class TeacherWaiting extends React.Component {
@@ -57,7 +58,7 @@ export default class TeacherWaiting extends React.Component {
                 ws.onmessage = payload => {
                     var data = JSON.parse(payload.data)
                     var op = data.op;
-
+                    console.log(data);
                     if (op == 17) {
                         // Student Join
                         this.setState({ students: this.state.students.concat([data.username]) });
@@ -135,9 +136,9 @@ export default class TeacherWaiting extends React.Component {
 
     renderStudents = () => {
         var students = [];
-        this.state.students.forEach(username => {
+        this.state.students.forEach((username, i) => {
             students.push(
-                <div className="studentJoined">{username}</div>
+                <div className="studentJoined" key={i}>{username}</div>
             )
         });
         return students;
@@ -145,7 +146,7 @@ export default class TeacherWaiting extends React.Component {
 
     render() {
         if (this.state.ended) {
-            return <div>Ended</div>
+            return <TeacherFinish students={this.playersFinal} />
         }
         if (this.state.started) {
             return this.renderPage();
@@ -158,6 +159,7 @@ export default class TeacherWaiting extends React.Component {
                     <div className="gameCode">{this.state.gameId}</div>
                     <h1>Students that have joined:</h1>
                     <div className="studentsJoined">
+                        <br></br>
                         {this.renderStudents()}
                     </div>
                     <button className="startBtn" onClick={this.startGame}>Start Game</button>
