@@ -3,6 +3,9 @@ import { Redirect, Link } from "react-router-dom";
 import Axios from "axios";
 import Session from "../../../resource/session.js";
 import "./base.css";
+import Axios from "axios";
+import Session from "../../../resource/session.js";
+import { Redirect } from "react-router-dom";
 
 
 class QuizBox extends React.Component {
@@ -41,7 +44,6 @@ class QuizBox extends React.Component {
 }
 
 export default class Editor extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -81,10 +83,10 @@ export default class Editor extends React.Component {
             return <Redirect to="/login" />
     }
 
-
-
     render() {
+        {this.redirect()}
         return (
+
             <div>
                 {this.redirect()}
                 <div className="quizSection">
